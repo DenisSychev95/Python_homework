@@ -127,16 +127,16 @@ class Country:
     def load(self):
         try:
             with open(self.json_name()) as fr:
-                self.__data = json.load(fr)
+                self.__data = json.load(fr, encoding="utf-8")
         except FileNotFoundError:
             with open(self.json_name(), "w") as fw:
-                json.dump(self.__data, fw, indent=2, ensure_ascii=False)
+                json.dump(self.__data, fw, indent=2, ensure_ascii=False, encoding="utf-8")
 
     # Метод сериализации(записи/упаковки) данных в файл:
     # ничего не возвращает, записывает данные в файл из self.data.
     def dump(self):
-        with open(self.json_name(), "w") as fw:
-            json.dump(self.__data, fw, indent=2, ensure_ascii=False)
+        with open(self.json_name(), "w", encoding="utf-8") as fw:
+            json.dump(self.__data, fw, indent=2, ensure_ascii=False, encoding="utf-8")
             print("Файл сохранен")
 
     # Метод добавления данных: считывает данные из файла, проверяет на наличие ключа с таким именем,
