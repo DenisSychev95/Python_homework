@@ -1,3 +1,4 @@
+__autor__ = "sychev_denis"
 import json
 import re
 
