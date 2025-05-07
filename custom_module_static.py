@@ -154,5 +154,3 @@ class CountryStatic:
         CountryStatic.load()
         print(f"Распакованные данные из файла:\n{CountryStatic.__countries}")
 
-
-CountryStatic.cycle()
