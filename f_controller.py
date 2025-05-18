@@ -1,5 +1,5 @@
-from f_model import ModelFilm
-from f_view import UserInterface
+from .f_model import ModelFilm
+from .f_view import UserInterface
 
 
 class Controller:
