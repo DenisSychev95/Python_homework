@@ -2,8 +2,6 @@ import os
 import pickle
 import re
 
-from unicodedata import digit
-
 
 class Film:
     # При создании экземпляра класса Film запрашивает значение ключей
