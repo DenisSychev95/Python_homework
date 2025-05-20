@@ -1,0 +1,217 @@
+CNUM – код клиента
+NAME – имя заказчика 
+CITY - город проживания клиента (заказчика)
+RATING - рейтинг клиента (покупателя)
+KOD - код продавца (менеджера)
+SUM – сумма
+CITY_2 – город, куда поставляют товар
+Prod – Товар
+REM - ремарка, примечание, пояснение
+
+=====================================
+
+1. В какие города фирма поставляет товар.
+
+SELECT DISTINCT CITY2
+FROM ZAKAZ
+
+2. В каких городах проживают заказчики.
+
+SELECT DISTINCT CITY
+FROM ZAKAZ
+
+3. Какие заказчики обслуживаются менеджером с номером 1005.
+
+SELECT CNUM,NAME,CITY,RATING,KOD
+FROM ZAKAZ
+WHERE KOD=1005
+
+SELECT CNUM,NAME,CITY,RATING,KOD
+FROM ZAKAZ
+WHERE KOD IS 1005
+
+SELECT CNUM,NAME,CITY,RATING,KOD
+FROM ZAKAZ
+WHERE KOD LIKE 1005
+
+4. Вывести только тех заказчиков, рейтинг которых более 380.
+
+SELECT CNUM,NAME,CITY,RATING
+FROM ZAKAZ
+WHERE RATING>380
+
+SELECT CNUM,NAME,CITY,RATING
+FROM ZAKAZ
+WHERE RATING BETWEEN 381 AND 400
+
+5. Определите тех заказчиков в ремарках, о которых ничего не сказано.
+
+SELECT CNUM,NAME,CITY,RATING,REM
+FROM ZAKAZ
+WHERE REM IS NULL
+
+6. Выведите коды тех продавцов, которые имеют сумму заказа более 4000.
+
+SELECT KOD,SUM
+FROM ZAKAZ
+WHERE SUM>4000
+
+SELECT KOD,SUM
+FROM ZAKAZ
+WHERE SUM BETWEEN 4001 AND 15000
+
+7. Вывести тех заказчиков, сумма заказа которых менее 1000 и они не живут в Иркутске.
+
+SELECT CNUM,NAME,CITY,RATING,SUM
+FROM ZAKAZ
+WHERE SUM<1000 AND CITY NOT LIKE "Иркутск"
+
+SELECT CNUM,NAME,CITY,RATING,SUM
+FROM ZAKAZ
+WHERE SUM<1000 AND CITY IS NOT "Иркутск"
+
+SELECT CNUM,NAME,CITY,RATING,SUM
+FROM ZAKAZ
+WHERE SUM<1000 AND NOT CITY="Иркутск"
+
+8. Вывести всех заказчиков, рейтинг которых от 100 до 270.
+Если включая рейтинг 270
+SELECT CNUM,NAME,CITY,RATING
+FROM ZAKAZ
+WHERE RATING BETWEEN 100 AND 270
+
+Если не включая рейтинг 270
+SELECT CNUM,NAME,CITY,RATING
+FROM ZAKAZ
+WHERE RATING BETWEEN 100 AND 269
+
+9. Выведите фамилии, код, город проживания, тех заказчиков, которые поставляют товар не в тот город, в котором они проживают.
+
+SELECT NAME,CNUM,CITY,CITY2
+FROM ZAKAZ
+WHERE CITY NOT LIKE CITY2
+
+SELECT NAME,CNUM,CITY,CITY2
+FROM ZAKAZ
+WHERE CITY IS NOT CITY2
+
+SELECT NAME,CNUM,CITY,CITY2
+FROM ZAKAZ
+WHERE NOT CITY=CITY2
+
+10. Вывести код  всех продавцов рейтинг заказчиков, которых менее 200 или больше 350.
+
+SELECT KOD,RATING
+FROM ZAKAZ
+WHERE RATING<200 OR RATING>350
+
+
+11. Вывести фамилии и товар всех заказчиков, которые заказали обеденные столы.
+
+SELECT NAME,Prod
+FROM ZAKAZ
+WHERE Prod LIKE "столы обеденные"
+
+SELECT NAME,Prod
+FROM ZAKAZ
+WHERE Prod="столы обеденные"
+
+SELECT NAME,Prod
+FROM ZAKAZ
+WHERE Prod IS "столы обеденные"
+
+12. Вывести фамилии заказчиков, в состав которых входит две буквы а и более.
+
+SELECT NAME
+FROM ZAKAZ
+WHERE NAME GLOB "*[Аа]*[Аа]*"
+
+13. Определите коды тех продавцов, фамилии заказчиков которых начинаются на К (вывести фамилию заказчика и номер продавца).
+
+SELECT NAME,KOD
+FROM ZAKAZ
+WHERE NAME GLOB "[К]*"
+
+SELECT NAME,KOD
+FROM ZAKAZ
+WHERE NAME LIKE "К%"
+
+14. Определите коды продавцов, которые продают стулья в Химках.
+
+SELECT KOD,Prod,CITY2
+FROM ZAKAZ
+WHERE Prod LIKE "стулья%" AND CITY2 LIKE "Химки"
+
+SELECT KOD,Prod,CITY2
+FROM ZAKAZ
+WHERE Prod LIKE "стулья%" AND CITY2="Химки"
+
+SELECT KOD,Prod,CITY2
+FROM ZAKAZ
+WHERE Prod LIKE "стулья%" AND CITY2 IS "Химки"
+
+15. Вывести всех заказчиков, которые проживают в Химках и продают товар там же, при этом сумма их заказа от 1000 до 1750.
+
+SELECT NAME,CITY,CITY2,SUM
+FROM ZAKAZ
+WHERE CITY="Химки" AND CITY2="Химки" AND 1000<=SUM<=1750
+
+16. Определить коды всех продавцов, которые не продают сейфы.
+
+SELECT KOD,Prod
+FROM ZAKAZ
+WHERE Prod NOT LIKE "сейфы%"
+
+SELECT KOD,Prod
+FROM ZAKAZ
+WHERE Prod IS NOT "сейфы"
+
+SELECT KOD,Prod
+FROM ZAKAZ
+WHERE NOT Prod="сейфы"
+
+17. Выведите список заказанных диванов на сумму большую 4000.
+
+SELECT CNUM,NAME,CITY,RATING,KOD,SUM,CITY2,Prod
+FROM ZAKAZ
+WHERE SUM>4000 AND Prod LIKE "диваны%"
+
+18. Выведите фамилии тех заказчиков, которые купили стульев на сумму большую 1200.
+
+SELECT NAME,Prod,SUM
+FROM ZAKAZ
+WHERE Prod LIKE "стулья%" AND SUM>1200
+
+19. Определите фамилии тех продавцов, которые не живут в Иркутске и имеют рейтинг менее 200 пунктов.
+
+SELECT NAME,CITY,RATING
+FROM ZAKAZ
+WHERE CITY NOT LIKE "Иркутск" AND RATING<200
+
+SELECT NAME,CITY,RATING
+FROM ZAKAZ
+WHERE CITY IS NOT "Иркутск" AND RATING<200
+
+SELECT NAME,CITY,RATING
+FROM ZAKAZ
+WHERE NOT CITY="Иркутск" AND RATING<200
+
+20. Написать запрос, который выводит фамилии заказчиков, которые имеют льготы на доставку.
+
+SELECT NAME,REM
+FROM ZAKAZ
+WHERE REM LIKE "%льготная доставка"
+
+21. Выведите фамилии продавцов, сумма заказа которых превышает 14000 тысяч и живут они не в Москве или Липецке.
+
+SELECT NAME,CITY,SUM
+FROM ZAKAZ
+WHERE SUM>14000 AND CITY NOT LIKE "Москва" AND CITY NOT LIKE "Липецк"
+
+SELECT NAME,CITY,SUM
+FROM ZAKAZ
+WHERE SUM>14000 AND CITY IS NOT "Москва" AND CITY IS NOT "Липецк"
+
+SELECT NAME,CITY,SUM
+FROM ZAKAZ
+WHERE SUM>14000 AND NOT CITY="Москва" AND NOT CITY="Липецк"
