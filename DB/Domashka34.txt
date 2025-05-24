@@ -1,0 +1,324 @@
+ID - код по магазину
+Produce - название продукта
+Material – материал
+Color – цвет
+Size – размер
+Country - страна производитель
+ID_salespeople - код поставщика товара
+Price - цена за штуку
+Count - количество штук
+REM - ремарки
+
+========================================================================
+
+1. Определите для какого товара код поставщика не определен. (полностью вся табл. переименованные атрибуты)
+
+SELECT ID AS "Код по магазину",Produce AS 'Название продукта',
+Material AS Материал,Color AS Цвет,Size AS Размер,
+Country AS [Страна производитель],
+ID_salespeople AS "Код поставщика товара",
+Price AS 'Цена за штуку',Count AS [Количество штук],
+REM AS Ремарки
+FROM Ware
+WHERE ID_salespeople IS NULL
+
+2. Определить все товары, которые производятся в Беларуси (марка, код товара. страна)
+
+SELECT ID AS "Код товара",Produce AS 'Марка',
+Country AS [Страна производитель],REM AS Продукт
+FROM Ware
+WHERE Country = "Беларусь"
+
+
+
+3. Удалите из таблицы все товары, которые произведены в Германии
+
+1. Через create similar table создали пустую таблицу Ware_copy аналогичную по структуре таблице Ware
+а)	Скопировали из таблицы Ware в Ware_copy все товары, произведенные в Германии:
+
+	INSERT INTO Ware_copy
+	SELECT *
+	FROM Ware
+	WHERE Country LIKE "Германия"
+
+б)	Удалили из таблицы Ware все товары, произведенные в Германии:
+
+	DELETE FROM Ware
+	WHERE Country LIKE "Германия"
+
+
+
+
+4. Замените страну-производителя Польшу на Россию (код, товар, страна, описание товара).
+
+UPDATE Ware
+SET Country="Россия"
+WHERE Country LIKE "Польша";
+
+5. Восстановите строки, удаленные в 3 пункте.
+
+
+1. Способ: Через create similar table создали пустую таблицу Ware_copy аналогичную по структуре таблице Ware
+
+а)	Скопировали из таблицы Ware в Ware_copy все товары, произведенные в Германии:
+
+	INSERT INTO Ware_copy
+	SELECT *
+	FROM Ware
+	WHERE Country LIKE "Германия"
+б)	Из таблицы Ware_copy копируем все данные в таблицу Ware
+
+	INSERT INTO Ware
+	SELECT *
+	FROM Ware_copy
+
+2. Способ: Построчно добавляем удаленные записи в табицу Ware через INSERT INTO
+
+INSERT INTO Ware
+VALUES (1026, "(F8E157eaLRG)", "полиэстер/нейлон", "ч",
+"38,1x28x70", "Германия", 2014, 126, 0, "Stone Street Case (15)");
+
+INSERT INTO Ware
+VALUES (1254, "CC06", "нейлон", "ч", "38x29x7",
+"Германия", 2011, 110, 6, "Nylon Computer Case (15'')");
+
+INSERT INTO Ware
+VALUES (1049, "KCB-03BKP", "кожзам.", "ч", "40x30x8,5",
+"Германия", 2001, 325, 14, "System Case (15'')");
+
+INSERT INTO Ware
+VALUES (1001, "CKN-002", "кожзам", "ч", "39x30x6,4",
+"Германия", 2001, 143, 2, "Notebrief (13,2'')");'
+
+INSERT INTO Ware
+VALUES (1036, "CN01", "полиэстер", "ч", "39x30x5",
+"Германия", 2011, 435, 32, "Computer Case (15/15,4'')");
+
+INSERT INTO Ware
+VALUES (1017, "PON-303BK", "полиэстер", "ч", "44,5х33,7х5,1",
+"Германия", 2015, 110, 29, "Large Expandable computer brief (17'')");
+
+6.  Выведите весь товар, который не черного цвета (продукт, цену, код продукта)
+
+SELECT Produce AS Продукт,Price AS Цена,ID AS Код,Color AS Цвет,
+REM AS "Вид товара"
+FROM Ware
+WHERE Color NOT LIKE "ч"
+
+7. Вставьте строку  NTC-117BK Micro Camera Case, нейлон, ч, 13,3x8,3x5,7, 2016, Беларусь, 1046
+
+INSERT INTO Ware (Produce, REM, Material, Color, Count, Size, 
+ID_salespeople, Country, ID)
+VALUES("NTC-117BK", "Micro Camera Case", "нейлон", "ч",
+13, "3x8,3x5,7", 2016, "Беларусь", 1046)
+
+8. Вставьте строку POC-463BK	Compact Camera Case, полиэстер, ч, 11x7x4,5, остальные данные не определены.
+
+INSERT INTO Ware (Produce, REM, Material, Color, Size, ID)
+VALUES("POC-463BK", "Compact Camera Case", "полиэстер", "ч",
+"11x7x4,5", 1111)
+
+9. Вывести весь товар, который поставляет продавец с кодом 2065 из России
+
+SELECT * 
+FROM Ware
+WHERE ID_salespeople = 2065 AND Country LIKE "Россия"
+
+10. Вывести товар, цена за который находится в диапазоне от 200 до 345
+
+SELECT * 
+FROM Ware
+WHERE Price BETWEEN 200 AND 345
+
+11. Определите все сумки из кожи с размером не менее 40х30х5
+
+1. Если искать по ключевому слову Case:
+
+	SELECT * 
+	FROM Ware
+	WHERE Material LIKE "кожа" AND REM GLOB "*Case*" 
+	AND Size GLOB "4[0-9]x3[0-9]x[6-9]*"
+
+2. Если принять во внимание, что все товары и есть сумки:
+
+	SELECT * 
+	FROM Ware
+	WHERE Material LIKE "кожа" AND Size GLOB "4[0-9]x3[0-9]x[6-9]*"
+
+12. Написать запрос, который выводит все сумки и коды их поставщиков, если товара меньше чем на 1200 руб.
+
+1. Если искать по ключевому слову Case:
+
+SELECT REM, ID_salespeople, Price, Count 
+FROM Ware
+WHERE REM GLOB "*Case*" AND Price*Count < 1200
+
+2. Если принять во внимание, что все товары и есть сумки:
+
+SELECT REM, ID_salespeople, Price, Count 
+FROM Ware
+WHERE Price*Count < 1200
+
+13. Написать запрос, который заменит код поставщика на 2000, если на складе хранится товара менее чем на 500 руб. По данному поставщику.
+
+UPDATE Ware
+SET ID_salespeople = 2000
+WHERE Price*Count < 500
+
+
+14. Вывести все кожаные сумки, количество которых менее 5 шт. и общая сумма товара не превышает 450 руб.
+ 
+1. Если искать по ключевому слову Case:
+
+SELECT *
+FROM Ware
+WHERE Material = "кожа" AND REM GLOB "*Case*" AND Count < 5 
+AND Price*Count <= 450
+
+2. Если принять во внимание, что все товары и есть сумки:
+
+SELECT *
+FROM Ware
+WHERE Material = "кожа" AND Count < 5 AND Price*Count <= 450
+
+15. Напишите запрос, который выведет все нейлоновые сумки цена на которые не превышает 250 руб.
+
+1. Если искать по ключевому слову Case:
+
+Состав только нейлон:
+
+SELECT *
+FROM Ware
+WHERE Material = "нейлон" AND REM GLOB "*Case*" AND Price <= 250
+
+Состав включает нейлон:
+
+SELECT *
+FROM Ware
+WHERE Material GLOB "*нейлон*" AND REM GLOB "*Case*" 
+AND Price <= 250
+
+2. Если принять во внимание, что все товары и есть сумки:
+
+Состав только нейлон:
+
+SELECT *
+FROM Ware
+WHERE Material = "нейлон" AND Price <= 250
+
+Состав включает нейлон:
+
+SELECT *
+FROM Ware
+WHERE Material GLOB "*нейлон*" AND Price <= 250
+
+16. Замените материал нейлон на брезент, если сумка стоит менее 200 руб. 
+
+1. Если искать по ключевому слову Case:
+
+Заменяем только нейлон:
+
+UPDATE Ware
+SET Material = "брезент"
+WHERE Material LIKE "нейлон" AND REM GLOB "*Case*" 
+AND Price < 200
+
+Заменяем содержащую нейлон сумку на содержащую брезент:
+
+UPDATE Ware
+SET Material = "полиэстер/брезент"
+WHERE Material GLOB "*нейлон*" AND REM GLOB "*Case*" 
+AND Price < 200
+
+2. Если принять во внимание, что все товары и есть сумки:
+
+Заменяем только нейлон:
+
+UPDATE Ware
+SET Material = "брезент"
+WHERE Material LIKE "нейлон" AND Price < 200
+
+Заменяем содержащую нейлон сумку на содержащую брезент:
+
+UPDATE Ware
+SET Material = "полиэстер/брезент"
+WHERE Material GLOB "*нейлон*" AND Price < 200
+
+17. Напишите запрос, который выводит все сумки, у которых есть косметички
+
+1. Если принять во внимание, что все товары и есть сумки:
+
+SELECT *
+FROM Ware
+WHERE REM GLOB "*косметичка*"
+
+2. Если искать по ключевому слову Case, НИЧЕГО НЕ БУДЕТ НАЙДЕНО:
+
+SELECT *
+FROM Ware
+WHERE REM GLOB "*Case*косметичка*"
+
+18. Напишите запрос, который покажет все кожаные сумки черного цвета китайского производства.
+
+1. Если принять во внимание, что все товары и есть сумки:
+
+SELECT *
+FROM Ware
+WHERE Material LIKE "кожа" AND Color = "ч" AND Country IS "Китай"
+
+2. Если искать по ключевому слову Case, НИЧЕГО НЕ БУДЕТ НАЙДЕНО:
+
+SELECT *
+FROM Ware
+WHERE Material LIKE "кожа" AND Color = "ч" AND Country IS "Китай"
+AND REM GLOB "*Case*"
+
+19. Напишите запрос, который покажет все сумки с размером более 15 дюймов.
+
+1. Вариант- показывает сумки с диагональю от 16 дюймов(включительно):
+
+SELECT *
+FROM Ware
+WHERE REM GLOB "*[1-9][6-9]*"
+
+2. Вариант- показывает сумки с диагональю от 15,1 дюймa(включительно):
+
+SELECT *
+FROM Ware
+WHERE REM GLOB "*[1-9][5-9],[1-9]*"
+
+20. Напишите запрос, который покажет всех поставщиков сумок не черного цвета.
+
+1. Если искать по ключевому слову Case:
+
+SELECT ID_salespeople, Color, REM
+FROM Ware
+WHERE REM GLOB "*Case*" AND NOT Color="ч"
+
+2. Если принять во внимание, что все товары и есть сумки:
+
+SELECT ID_salespeople, Color, REM
+FROM Ware
+WHERE NOT Color="ч"
+
+21. Замените материал полиэстер у сумок китайского производства на нейлон
+
+1. Если искать по ключевому слову Case:
+
+UPDATE Ware
+SET Material = "нейлон" 
+WHERE Country IS "Китай" AND Material LIKE "полиэстер"
+AND REM GLOB "*Case*"
+
+2. Если принять во внимание, что все товары и есть сумки:
+
+UPDATE Ware
+SET Material = "нейлон" 
+WHERE Country IS "Китай" AND Material LIKE "полиэстер"
+
+22. В записях с кодом товара: 1015, 1041, 1032, 1010 материал нейлон заменить на полиэстер если страна-производитель Китай.
+
+UPDATE Ware
+SET Material = "полиэстер"
+WHERE ID IN (1015, 1041, 1032, 1010) AND 
+Country LIKE "Китай" AND Material = "нейлон"
