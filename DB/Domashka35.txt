@@ -1,0 +1,235 @@
+1.	Выведите перечень сумм заказов продавца Rifkin.
+
+Варианты с указанием связи между таблицами:
+
+SELECT *
+FROM Salespeople s, Orders o
+WHERE s.snum = o.snum AND s.sname LIKE "Rifkin";
+
+SELECT amt
+FROM Salespeople s, Orders o
+WHERE s.snum = o.snum AND s.sname LIKE "Rifkin";
+
+SELECT o.amt
+FROM Salespeople s, Orders o
+WHERE s.snum = o.snum AND s.sname LIKE "Rifkin";
+
+Варианты с подзапросом:
+
+SELECT *
+FROM Orders
+WHERE snum IN(
+SELECT snum
+FROM Salespeople
+WHERE sname = "Rifkin");
+
+SELECT amt
+FROM Orders
+WHERE snum IN(
+SELECT snum
+FROM Salespeople
+WHERE sname = "Rifkin");
+
+2.	Определите  комиссионные всех продавцов, обслуживающих заказчиков в Риме
+
+Варианты с указанием связи между таблицами:
+
+SELECT *
+FROM Salespeople s, Customers c
+WHERE s.snum = c.snum AND c.city LIKE "Rome";
+
+SELECT s.com
+FROM Salespeople s, Customers c
+WHERE s.snum = c.snum AND c.city LIKE "Rome";
+
+SELECT com
+FROM Salespeople s, Customers c
+WHERE s.snum = c.snum AND c.city LIKE "Rome";
+
+Варианты с подзапросом:
+
+SELECT *
+FROM Salespeople
+WHERE snum IN(
+SELECT snum
+FROM Customers
+WHERE city = "Rome");
+
+SELECT com
+FROM Salespeople
+WHERE snum IN(
+SELECT snum
+FROM Customers
+WHERE city = "Rome");
+
+3.	Напишите запрос, который определит заказчиков имеющих рейтинг ниже среднего.
+
+Варианты с подзапросом:
+
+SELECT *
+FROM Customers
+WHERE rating < (
+SELECT AVG(rating)
+FROM Customers);
+
+SELECT cnum, cname, rating
+FROM Customers
+WHERE rating < (
+SELECT AVG(rating)
+FROM Customers);
+
+4.	Определите города проживания заказчиков с наименьшим рейтингом.
+
+Варианты с подзапросом:
+
+SELECT *
+FROM Customers
+WHERE rating = (
+SELECT MIN(rating)
+FROM Customers);
+
+SELECT DISTINCT city, rating
+FROM Customers
+WHERE rating = (
+SELECT MIN(rating)
+FROM Customers);
+
+5.	Напишите запрос, который выводил бы заказы клиента Liu
+
+Варианты с указанием связи между таблицами:
+
+SELECT o.onum
+FROM Orders o, Customers c
+WHERE c.cnum = o.cnum AND c.cname LIKE "Liu";
+
+SELECT onum
+FROM Orders o, Customers c
+WHERE c.cnum = o.cnum AND c.cname LIKE "Liu";
+
+SELECT onum as заказы
+FROM Orders o, Customers c
+WHERE c.cnum = o.cnum AND c.cname LIKE "Liu";
+
+SELECT onum заказы
+FROM Orders o, Customers c
+WHERE c.cnum = o.cnum AND c.cname LIKE "Liu";
+
+SELECT *
+FROM Orders o, Customers c
+WHERE c.cnum = o.cnum AND c.cname LIKE "Liu";
+
+Варианты с подзапросом:
+
+SELECT onum
+FROM Orders
+WHERE cnum IN(
+SELECT cnum
+FROM Customers
+WHERE cname = "Liu");
+
+SELECT onum as заказы
+FROM Orders
+WHERE cnum IN(
+SELECT cnum
+FROM Customers
+WHERE cname = "Liu");
+
+SELECT *
+FROM Orders
+WHERE cnum IN(
+SELECT cnum
+FROM Customers
+WHERE cname = "Liu");
+
+6.	Определите наибольшие комиссионные продавца для Рима.
+
+Если подразумевается, что Рим- город проживания покупателя, продавец продает в Рим:
+
+Варианты с указанием связи между таблицами:
+
+SELECT MAX(s.com) AS "макс.комиссионные"
+FROM Salespeople s, Customers c
+WHERE s.snum = c.snum AND c.city LIKE "Rome";
+
+SELECT MAX(s.com)
+FROM Salespeople s, Customers c
+WHERE s.snum = c.snum AND c.city LIKE "Rome";
+
+Варианты с подзапросом:
+
+SELECT MAX(com)
+FROM Salespeople
+WHERE snum IN(
+SELECT snum
+FROM Customers
+WHERE city = "Rome"
+);
+
+SELECT MAX(com) AS "макс.комиссионные"
+FROM Salespeople
+WHERE snum IN(
+SELECT snum
+FROM Customers
+WHERE city = "Rome"
+);
+
+7.	Напишите запрос который выведет всех клиентов обслуживаемых продавцом Motiка.
+
+Варианты с указанием связи между таблицами:
+
+SELECT * 
+FROM Salespeople s, Customers c
+WHERE s.snum = c.snum AND s.sname IS "Motika";
+
+SELECT c.cname AS клиенты 
+FROM Salespeople s, Customers c
+WHERE s.snum = c.snum AND s.sname IS "Motika";
+
+Варианты с подзапросом:
+
+SELECT cname
+FROM Customers
+WHERE snum = (
+SELECT snum
+FROM Salespeople
+WHERE sname LIKE "Motika"
+);
+
+SELECT *
+FROM Customers
+WHERE snum = (
+SELECT snum
+FROM Salespeople
+WHERE sname LIKE "Motika"
+);
+
+8.	Напишите запрос, который выведет максимальный рейтинг заказчика для продавцов имеющих комиссионные больше 0,11%.
+
+Варианты с указанием связи между таблицами:
+
+SELECT s.sname, MAX(c.rating)
+FROM Salespeople s, Customers c
+WHERE s.snum = c.snum AND s.com > 0.11
+GROUP BY s.sname
+HAVING c.rating = MAX(c.rating);
+
+SELECT *
+FROM Salespeople s, Customers c
+WHERE s.snum = c.snum AND s.com > 0.11
+GROUP BY s.sname
+HAVING c.rating = MAX(c.rating);
+
+Варианты с подзапросом:
+
+SELECT *
+FROM Customers
+WHERE cnum IN(SELECT cnum
+FROM Customers
+WHERE snum IN(
+SELECT snum
+FROM Salespeople
+WHERE com > 0.11
+)
+)
+GROUP BY snum
+HAVING MAX(rating);
