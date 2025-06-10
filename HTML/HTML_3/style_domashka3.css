@@ -1,0 +1,52 @@
+.upper-roman {
+    list-style-type: upper-roman;
+    font-weight: bold;
+}
+
+.red {
+    color: red;
+}
+
+.yellow {
+    color: rgb(252, 193, 2);
+}
+
+.green {
+    color: rgb(10, 209, 10);
+}
+
+.blue {
+    color: rgb(3, 170, 236);
+}
+
+.blueviolet {
+    color: rgb(105, 8, 195);
+}
+
+.black {
+    color: black;
+}
+
+.lower-alpha {
+    list-style-type: lower-alpha;
+}
+
+.orange_marker {
+    list-style-image: url(orange_marker.png);
+}
+
+.red_marker {
+    list-style-image: url(red_marker.png);
+}
+
+.green_marker {
+    list-style-image: url(green_marker.png);
+}
+
+.blue_marker {
+    list-style-image: url(blue_marker.png);
+}
+
+.black_marker {
+    list-style-image: url(black_marker.png);
+}
