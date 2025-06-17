@@ -1,0 +1,69 @@
+body {
+    background-image: url(../img/pattern.png);
+}
+
+table {
+    width: 900px;
+    height: 285px;
+    border: 2px solid rgb(203, 202, 202);
+    border-collapse: collapse;
+    background: white;
+    font-family: Calibri, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin: 80px 50px;
+    box-shadow: 0 0 2px 2px rgb(203, 202, 202);
+}
+
+th {
+    border: 2px solid rgb(203, 202, 202);
+    background-image: url(../img/tablebg.jpg);
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+td {
+    border: 2px solid rgb(203, 202, 202);
+
+}
+
+.row {
+    background: rgb(203, 202, 202);
+}
+
+div {
+    margin-left: 50px;
+    width: 150px;
+}
+
+a {
+    color: black;
+    font-family: Calibri, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+div:hover {
+    background: rgb(15, 188, 41);
+    text-align: center;
+    border: 3px solid rgb(46, 144, 52);
+    box-shadow: 0 0 5px 5px rgb(12, 219, 43);
+}
+
+div:active {
+    background: rgb(37, 58, 197);
+    text-align: center;
+    border: 2px solid rgb(35, 46, 116);
+    box-shadow: 0 0 5px 5px rgb(54, 77, 229);
+}
+
+a:hover {
+    color: rgb(7, 19, 127);
+    font-variant: small-caps;
+}
+
+a:active {
+    color: white;
+    font-variant: small-caps;
+}

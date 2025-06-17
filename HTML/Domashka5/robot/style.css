@@ -1,0 +1,170 @@
+div {
+    border: 1px solid black;
+    position: absolute;
+
+}
+
+.face {
+    background: silver;
+    width: 550px;
+    height: 400px;
+    left: 200px;
+    top: 300px;
+    z-index: 1;
+}
+
+.mouth {
+    background: yellow;
+    width: 250px;
+    height: 100px;
+    left: 350px;
+    top: 550px;
+    z-index: 2;
+}
+
+.l_eye {
+    background: white;
+    width: 100px;
+    height: 100px;
+    left: 300px;
+    top: 350px;
+    z-index: 2;
+}
+
+.r_eye {
+    background: white;
+    width: 100px;
+    height: 100px;
+    left: 550px;
+    top: 350px;
+    z-index: 2;
+}
+
+.r_h1 {
+    background: rgb(158, 156, 156);
+    width: 50px;
+    height: 100px;
+    left: 150px;
+    top: 400px;
+}
+
+.r_h2 {
+    background: silver;
+    width: 50px;
+    height: 200px;
+    left: 100px;
+    top: 350px;
+}
+
+.l_h1 {
+    background: rgb(158, 156, 156);
+    width: 50px;
+    height: 100px;
+    left: 750px;
+    top: 400px;
+}
+
+.l_h2 {
+    background: silver;
+    width: 50px;
+    height: 200px;
+    left: 800px;
+    top: 350px;
+}
+
+.aerial_1 {
+    background: rgb(158, 156, 156);
+    width: 50px;
+    height: 100px;
+    left: 450px;
+    top: 200px;
+}
+
+.aerial_top {
+    background: silver;
+    width: 150px;
+    height: 150px;
+    left: 400px;
+    top: 50px;
+}
+
+.nose {
+    background: rgb(207, 4, 4);
+    width: 50px;
+    height: 50px;
+    left: 450px;
+    top: 450px;
+    z-index: 3;
+}
+
+.l_pupil {
+    background: rgb(5, 5, 188);
+    width: 50px;
+    height: 50px;
+    left: 300px;
+    top: 400px;
+    z-index: 3;
+}
+
+.r_pupil {
+    background: rgb(5, 5, 188);
+    width: 50px;
+    height: 50px;
+    left: 600px;
+    top: 400px;
+    z-index: 3;
+}
+
+.aerial_l {
+    background: yellow;
+    width: 50px;
+    height: 50px;
+    left: 450px;
+    top: 100px;
+    z-index: 3;
+}
+
+.tooth1 {
+    background: white;
+    width: 50px;
+    height: 50px;
+    left: 350px;
+    top: 550px;
+    z-index: 4;
+}
+
+.tooth2 {
+    background: white;
+    width: 50px;
+    height: 50px;
+    left: 450px;
+    top: 550px;
+    z-index: 4;
+}
+
+.tooth3 {
+    background: white;
+    width: 50px;
+    height: 50px;
+    left: 550px;
+    top: 550px;
+    z-index: 4;
+}
+
+.tooth4 {
+    background: white;
+    width: 50px;
+    height: 50px;
+    left: 400px;
+    top: 600px;
+    z-index: 3;
+}
+
+.tooth5 {
+    background: rgb(16, 16, 16);
+    width: 50px;
+    height: 50px;
+    left: 500px;
+    top: 600px;
+    z-index: 3;
+}
