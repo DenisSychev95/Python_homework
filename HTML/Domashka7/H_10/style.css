@@ -1,0 +1,80 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.container{  /* флекс-контейнер */
+	background: yellow;
+	margin: 100px auto;
+	padding: 10px 0;
+	display: flex;
+	flex-direction: row;
+	/* flex-direction: row-reverse;
+	flex-direction: column;
+	flex-direction: column-reverse; */
+	flex-wrap: wrap;
+	/* flex-wrap: wrap-reverse; */
+	/* justify-content: center; */
+	/* по умолчанию */
+	/* justify-content: start;
+	justify-content: end; */
+	/* прилипает к краям */
+	/* justify-content: space-between;
+	justify-content: space-around; */
+	/* одинаковое расстояние слева справа и по краям */
+	/* justify-content: space-evenly; */
+	height: 300px;
+	/* align-items: stretch;
+	align-items: flex-start;
+	align-items: flex-end;
+	align-items: center;
+	align-items: baseline; */
+	/* flex-direction: column; */
+	/* свойства работают если есть высота */
+	/* align-content: flex-end;
+	align-content: flex-start;
+	align-content: center;
+	align-content: stretch;
+	align-content: space-between;
+	align-content: space-around;
+	align-content: space-evenly;
+	align-content: flex-end;
+	justify-content: flex-end; */
+}
+
+.element{   /* флекс-элементы */
+	border: 1px solid black;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	margin: 20px;
+	/* flex-basis: 300px;	 */
+
+}
+
+.one{
+	/* font-size: 40px; */
+	
+	/* align-self: flex-end;
+	align-self: center;
+	align-self: stretch;
+	align-self: baseline;
+	align-self: flex-start; */
+	/* order: -2; */
+	/* отрабатывает как ширина в приоритете если flex-direction: row; и как высота 
+	если flex-direction: column; */
+	/* можно применять для одного или для всех  флекс элементов */
+	/* flex-basis: 300px;
+	width: 200px; */
+	margin-right: auto;
+}
+
+.two{
+	/* order: 1; */
+}
+.three{
+	/* order: -1; */
+	margin-left: auto;
+}
+.top__block--left{
+	margin: 0;
+}

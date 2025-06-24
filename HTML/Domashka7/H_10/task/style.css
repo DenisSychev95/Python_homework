@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+}
+
+.wrap {
+    max-width: 1050px;
+    min-width: 414px;
+    margin: 0 auto;
+}
+
+/* top */
+.top {
+    background: rgb(243, 243, 243);
+}
+
+.top__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top__block--left {
+    margin: 0;
+    color: rgb(37, 43, 66);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0.1px;
+    margin: 36px 0;
+}
+
+.top__block--right {
+    margin: 0;
+    display: flex;
+    list-style: none;
+    /* list-style-type: none; */
+}
+
+.top__block--right li {
+    margin-left: 21px;
+}
+
+.top__block--right a {
+    color: rgb(115, 115, 115);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+
+}
+
+.second__block {
+    /* border: 1px solid; */
+    height: 428px;
+    padding: 80px 95px;
+
+}
+
+.second__block--inner {
+    /* border: 1px solid; */
+    width: 860px;
+    height: 348px;
+    padding: 40px 0;
+
+
+}
+
+.block__inner--text1 {
+    /* border: 1px solid; */
+    width: 727px;
+    height: 160px;
+    margin: 0 66.5px;
+    /* h1 */
+    color: rgb(37, 43, 66);
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 80px;
+    letter-spacing: 0.2px;
+    text-align: center;
+}
+
+.block__inner--text2 {
+    /* border: 1px solid; */
+    width: 539px;
+    height: 60px;
+    margin: 40px 160.5px;
+    color: rgb(115, 115, 115);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+    text-align: center;
+
+
+}
+
+.block__inner--buttons {
+    /* border: 1px solid; */
+    height: 48px;
+    margin: 0 253px;
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-between;
+
+}
+
+input[type="button"] {
+    cursor: pointer;
+}
+
+input[type="button"]#orange {
+    border: none;
+    border-radius: 37px;
+    background: rgb(255, 166, 43);
+    width: 187px;
+    height: 48px;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0.2px;
+    text-align: center;
+}
+
+input[type="button"]#white {
+    border: 1px solid rgb(0, 160, 193);
+    /* margin-left: 10px; */
+    border-radius: 37px;
+    width: 157px;
+    height: 48px;
+    color: rgb(0, 160, 193);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0.2px;
+    text-align: center;
+
+}
