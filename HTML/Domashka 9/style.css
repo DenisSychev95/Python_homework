@@ -6,6 +6,8 @@ body {
 img {
     display: block;
     animation: fall 8s infinite;
+    width: 100px;
+    height: 100px;
 }
 
 @keyframes fall {
@@ -125,7 +127,7 @@ img {
     79% {
         margin-left: 790px;
         margin-top: 400px;
-        height: 85px;
+        height: 100px;
     }
 
     100% {
