@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    animation: fall 8s infinite;
+}
+
+@keyframes fall {
+    0% {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    13% {
+        margin-left: 130px;
+        margin-top: 400px;
+        height: 85px;
+    }
+
+
+    22% {
+        margin-left: 220px;
+        margin-top: 80px;
+    }
+
+    31% {
+        margin-left: 310px;
+        margin-top: 400px;
+        height: 85px;
+    }
+
+
+    38% {
+        margin-left: 380px;
+        margin-top: 144px;
+    }
+
+    45% {
+        margin-left: 450px;
+        margin-top: 400px;
+        height: 85px;
+    }
+
+
+    50% {
+        margin-left: 500px;
+        margin-top: 195px;
+    }
+
+    55% {
+        margin-left: 550px;
+        margin-top: 400px;
+        height: 85px;
+    }
+
+
+    59% {
+        margin-left: 590px;
+        margin-top: 236px;
+    }
+
+    63% {
+        margin-left: 630px;
+        margin-top: 400px;
+        height: 85px;
+    }
+
+
+    66% {
+        margin-left: 660px;
+        margin-top: 269px;
+    }
+
+    69% {
+        margin-left: 690px;
+        margin-top: 400px;
+        height: 85px;
+    }
+
+
+    71% {
+        margin-left: 710px;
+        margin-top: 295px;
+    }
+
+
+    73% {
+        margin-left: 730px;
+        margin-top: 400px;
+        height: 85px;
+    }
+
+
+    74% {
+        margin-left: 740px;
+        margin-top: 316px;
+    }
+
+
+    75% {
+        margin-left: 750px;
+        margin-top: 400px;
+        height: 85px;
+    }
+
+    76% {
+        margin-left: 760px;
+        margin-top: 333px;
+    }
+
+    77% {
+        margin-left: 770px;
+        margin-top: 400px;
+        height: 85px;
+    }
+
+    78% {
+        margin-left: 780px;
+        margin-top: 346px;
+    }
+
+    79% {
+        margin-left: 790px;
+        margin-top: 400px;
+        height: 85px;
+    }
+
+    100% {
+        margin-left: 800px;
+        margin-top: 400px;
+    }
+}
