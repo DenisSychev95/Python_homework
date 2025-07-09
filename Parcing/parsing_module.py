@@ -50,10 +50,10 @@ class Parser:
                          "Просмотры": views}
             self.data.append(news_info)
 
-    def save_data(self):
+    def save_data(self, num):
         with open(self.name, "a", encoding="utf-8") as fw:
             ind = 1
-            fw.write(f"Страница: {self.url[-2]}\n")
+            fw.write(f"Страница: {num}\n")
             for elem in self.data:
                 fw.write(f"Новость № {ind}\n\nНазвание :{elem["Название"]}"
                          f"\nАвтор: {elem["Автор"]}\nСсылка: {elem["Ссылка"]}\nОписание: {elem["Описание"]}\n"
@@ -63,4 +63,4 @@ class Parser:
     def run_parsing(self):
         self.get_page()
         self.parsing()
-        self.save_data()
+
