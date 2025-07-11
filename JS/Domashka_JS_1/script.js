@@ -11,6 +11,7 @@ let discount2 = 3;
 let summ = prompt("Введите стоимость покупки: ");
 let row1 = s_r1 + summ + currency;
 let row2, row3;
+let res0 = s_r1 + s_null + "\n" + s_r2 + s_null + "\n" + s_r3 + s_null;
 
 // if (summ > 1000){
 //     row2 = s_r2 + discount1 + "%";
@@ -25,6 +26,9 @@ let row2, row3;
 //     alert(`${row1};
 // ${row2}
 // ${row3}`);
+// }
+// else if(summ == null){
+//     alert(res0)
 // }
 // else{
 //     row2 = s_r2 + discount;
@@ -47,12 +51,15 @@ let row2, row3;
 // ${row3}`);
 // }
 // if(summ <= 500){
+//     if(summ == null){
+//     alert(res0)
+// }
+//     else{
 //     row2 = s_r2 + discount;
 //     row3 = s_r3 + summ + currency;
-//     alert(row1 + "\n" + row2 + "\n"+row3);
+//     alert(row1 + "\n" + row2 + "\n"+row3)};
 // };
 
-let res0 = s_r1 + s_null + "\n" + s_r2 + s_null + "\n" + s_r3 + s_null;
 let res1 = row1 + "\n"+ s_r2 + discount1 + "%" +"\n" + s_r3 + (0.01*(100-discount1)*summ).toFixed(2) + currency;
 let res2 = row1 + "\n" + s_r2 + discount2 + "%" + "\n" + s_r3 + (0.01*(100-discount2)*summ).toFixed(2) + currency;
 let res3 = row1 + "\n" + s_r2 + discount + "\n" + s_r3 + summ + currency;
