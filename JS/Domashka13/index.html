@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domashka_JS_13</title>
+    <link rel="icon" type="jpeg/png" href="dizzy.png">
+<style>
+    .container{
+        width: 300px;
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+    }
+
+    button{
+        cursor : pointer;
+        border-radius: 20%;
+        background-color:orange;
+        width: 130px;
+        height: 30px;
+        font-weight: bold;
+    }
+    .input{
+        margin: 20px auto;
+    }
+    .small{
+        font-size: 10px;
+        color: gray;
+        visibility: hidden;
+    }
+    .object{
+        width: 200px;
+        height: 70px;
+        background-color: antiquewhite;
+        border: 2px solid gray;
+        box-shadow: 0 0 3px 3px slategrey;
+        position: absolute;
+        z-index: 2;
+        top: 95px;
+        left: 60px;
+        text-align: center;
+        
+        box-sizing: border-box;
+
+    }
+    img{
+        width: 25px;
+    }
+    p{
+        margin: 5px auto;
+    }
+
+</style>
+</head>
+<body>
+    <form action="#server.php" method="POST" name="form1" class="container">
+        <fieldset>
+            <legend><h2>Форма обратной связи</h2></legend>
+            <div class="input" id="one">Имя: &emsp;&emsp;&ensp;<input type="text" name="name" id="name" placeholder="Как вас зовут?">
+            <div class="small" id="errorName">Некорректное имя</div>
+            </div>
+            <div class="input" id="two">Телефон:&emsp;<input type="phone" name="phone" id="phone" placeholder="Номер телефона">
+            <div class="small" id="errorPhone">&emsp;&emsp;&emsp;&emsp;&emsp;Некорректный номер телефона</div></div>
+            <button>Отправить</button>
+        </fieldset>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
