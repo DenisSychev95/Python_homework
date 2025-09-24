@@ -1,0 +1,19 @@
+.Content {
+    margin-top: 170px;
+    margin-left: 50px;
+
+    list-style-type: none;
+
+
+}
+
+a {
+    text-decoration: none;
+    color: rgb(211, 240, 240);
+    font-size: 22px;
+}
+
+li::before {
+    content: "\25B6";
+    margin-right: 10px;
+}
