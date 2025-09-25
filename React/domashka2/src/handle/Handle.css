@@ -1,0 +1,13 @@
+.Hidden {
+    visibility: hidden
+}
+
+#two{
+    background: #6495ED;
+    margin: 20px auto;
+    
+}
+
+.Visible {
+    visibility: visible
+}
