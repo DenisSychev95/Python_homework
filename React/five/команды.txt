@@ -1,0 +1,5 @@
+Хук состояния
+import {useState} from "react"
+
+let [value, setValue] =useState("Hello");
+let [count, setCount] = useState(10);
