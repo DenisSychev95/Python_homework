@@ -1,0 +1,10 @@
+.default-ul{
+    display: block;
+    margin: 20px auto;
+}
+
+.inner-li{
+    display: flex;
+    padding: 0 60px;
+    justify-content: space-between;
+}
