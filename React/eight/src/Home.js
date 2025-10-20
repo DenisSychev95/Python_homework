@@ -7,10 +7,10 @@ function Home() {
     const [count, setCount] = useState([]);
     /* const [visible, setVisible] = useState(false); */
 
-    
-/*     const changeVisible = () => {
-        count.length ? setVisible(true) : setVisible(true)
-    } */
+
+    /*     const changeVisible = () => {
+            count.length ? setVisible(true) : setVisible(true)
+        } */
 
     const onChangeCount = (id) => {
         if (count.includes(id)) {
@@ -31,7 +31,7 @@ function Home() {
                 onChangeCount={onChangeCount}
 
             />
-            {count.length ? <Total res={count.length} /> : null}
+            {count.length > 0 && < Total res={count.length} /> }
 
         </div>
     )
