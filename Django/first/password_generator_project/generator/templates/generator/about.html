@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    .about1{
+    margin-top: 30px;
+    text-align: center;
+    }
+    .about1 a{
+    border: 2px solid black;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 1px 1px 4px 2px grey
+    }
+    *{
+    text-align: center}
+    li{
+    text-align:left}
+    .footer{
+    display: flex;
+    justify-content: space-between;
+    flex-basis:250px}
+    .footer p{
+    margin:10px}
+  </style>
+</head>
+<body>
+<h2>{{ title }}</h2>
+<p>Это приложение позволит с легкостью сгенерировать уникальный пароль под вашу задачу.</p>
+<p>Интуитивно понятный интерфейс. Возможность добавления дополнительных условий генерации значений</p>
+<h4>Вы в пару кликов можете:</h4>
+<ul>
+{% for tag in tags %}
+  <li>{{ tag }}</li>
+  {% endfor %}
+</ul>
+<div class="about1">
+    <a  href="{% url 'home' %}">{{ button}}</a>
+</div>
+<div class="footer">
+  <p>Разработано студентом группы Python 522</p>
+  <p>При поддержке преподавателя Helen-prog</p>
+</div>
+<h6>Copyright 2025</h6>
+</body>
+</html>

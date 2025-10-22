@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+      <style>
+    .about1{
+    margin-top: 30px;
+    text-align: center;
+    }
+    .about1 a{
+    border: 2px solid black;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 1px 1px 4px 2px grey
+    }
+  </style>
+</head>
+<body>
+<h1>Генератор паролей</h1>
+<form action="{% url 'psw'%}">
+    <p>
+  <select name="length">
+      {% for i in lst %}
+    <option value="{{ i }}">{{ i }}</option>
+      {% endfor %}
+
+  </select>
+    Количество символов</p>
+
+    <p>
+        <input type="checkbox" name="uppercase" id="upper"><label for="upper">Верхний регистр</label>
+    </p>
+    <p>
+        <input type="checkbox" name="numbers" id="num"><label for="num">Цифры</label>
+    </p>
+    <p>
+        <input type="checkbox" name="special" id="spec"><label for="spec">Спецсимволы</label>
+    </p>
+<input type="submit" value="Сгенерировать пароль"></input>
+</form>
+<div class="about1">
+    <a  href="{% url 'about' %}">Описание приложения</a>
+</div>
+
+</body>
+</html>
