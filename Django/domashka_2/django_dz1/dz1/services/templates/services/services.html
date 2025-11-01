@@ -1,0 +1,16 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content%}
+<h1>Услуги</h1>
+<div class="container">
+    {% for element in elements %}
+    <div class="card">
+        <div class="top"><a href="{% url 'detail' element.id %}">{{element.title}}</a></div>
+        <div class="image"><img src="{{element.image.url}}"></div>
+        <div class="price">От <b>{{element.price}}</b> ₽</div>
+        <div class="text">{{element.description|striptags|truncatechars:200}}</div>
+        <div class="bot"><a href="{% url 'detail' element.id %}">Подробнее</a></div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

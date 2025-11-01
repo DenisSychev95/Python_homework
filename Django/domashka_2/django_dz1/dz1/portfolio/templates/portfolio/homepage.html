@@ -1,0 +1,19 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+    <h1> Вас приветствует врач-стоматолог ортопед </h1>
+    <div class="img"><img src="{% static 'images/5.jpg' %}" alt=""></div>
+    <h2>Повседневная рутина это:</h2>
+    <div class="block">
+        {% for obj in objects %}
+            <div class="element">
+                <div><img src="{{  obj.image.url  }}" alt=""></div>
+                <div class="text">
+                    <h2><a href="{{  obj.url  }}" target="_blank" class="black">{{ obj.title }}</a></h2>
+                    <p>{{ obj.description }}</p>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

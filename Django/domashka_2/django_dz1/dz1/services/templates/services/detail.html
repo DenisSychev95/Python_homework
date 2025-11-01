@@ -1,0 +1,9 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<div class="detail">
+    <div class="image_big"><img src="{{elem.image.url}}"></div>
+{{elem.about|safe}}
+</div>
+
+{% endblock %}
