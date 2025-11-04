@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/trollface.ico' %}">
+</head>
+<body>
+<div class="menu">
+    <div class="wrap">
+        <div class="left">
+        <div class="logo">
+            <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
+        </div>
+        <ul>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="{% url 'services' %}">Каталог</a></li>
+                <li><a href="{% url 'info' %}">Информация</a></li>
+                <li><a href="{% url 'autor' %}">Контакты</a></li>
+            {% else %}
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="{% url 'info' %}">Информация</a></li>
+            {% endif %}
+        </ul>
+        </div>
+        <div class="right">
+            <ul>
+            {% if user.is_authenticated %}
+            <li id="user_name">Пользователь: {{user.username}}</li>
+                <li><form action="{% url 'logoutuser' %}" method="post">
+                    {% csrf_token %}
+                    <button class="btn_top">Выйти</button>
+                </form></li>
+            {% else %}
+                <li id="user_name1">Гость</li>
+            <li><a href="{% url 'signupuser' %}">Регистрация</a></li>
+            <li><a href="{% url 'loginuser' %}">Авторизация</a></li>
+            {% endif %}
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="content">
+  <div class="wrap">
+    {% block content %}
+    {% endblock %}
+  </div>
+</div>
+</body>
+</html>
