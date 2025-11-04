@@ -1,0 +1,13 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+<h1>Авторизация</h1>
+<h3>{{ error }}</h3>
+<form action="" method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button>Авторизация</button>
+</form>
+
+{% endblock %}
